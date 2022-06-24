@@ -1,0 +1,63 @@
+.sidebar{
+	border-right: 2px solid red;
+	height: 100vh;
+	 overflow-y: scroll;
+
+
+}
+
+.active{
+
+	background: black;
+
+}
+
+.active a{
+
+	color: #fff!important;
+}
+
+.nav_icon{
+	padding: 10px 15px;
+}
+.nav_icon a{
+	text-decoration: none;
+	color: black;
+	font-size: 28px;
+}
+
+.nav_icon:hover{
+	text-decoration: none;
+	background: black;
+	
+	transition: 0.5s all ease;
+}
+
+.nav_icon:hover a{
+	
+	color: #fff;
+}
+
+.box{
+	width: 200px;
+	height: 200px;
+	background: red;
+	border-radius: 30px;
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	flex-direction: column;
+	color: #fff;
+}
+
+.box i{
+
+	font-size: 30px;
+	margin-bottom: 15px;
+
+}
+
+
+
+
+
