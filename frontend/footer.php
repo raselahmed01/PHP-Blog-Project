@@ -33,7 +33,7 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="font-weight-bold mb-4">Tags</h4>
-                <div class="d-flex flex-wrap m-n1">
+                <!-- <div class="d-flex flex-wrap m-n1">
                     <a href="" class="btn btn-sm btn-outline-secondary m-1">Politics</a>
                     <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
                     <a href="" class="btn btn-sm btn-outline-secondary m-1">Corporate</a>
@@ -46,7 +46,8 @@
                     <a href="" class="btn btn-sm btn-outline-secondary m-1">Entertainment</a>
                     <a href="" class="btn btn-sm btn-outline-secondary m-1">Travel</a>
                     <a href="" class="btn btn-sm btn-outline-secondary m-1">Lifestyle</a>
-                </div>
+                </div> -->
+                <?php include'tag.php'; ?>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="font-weight-bold mb-4">Quick Links</h4>

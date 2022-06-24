@@ -1,12 +1,10 @@
 <?php 
 
-include 'conn.php';
+    include 'conn.php';
+
+    include 'header.php'; 
 
 ?>
-
-
-
-<?php include 'header.php'; ?>
 
 
 <!-- Main News Slider Start -->
@@ -62,7 +60,7 @@ include 'conn.php';
 
                     		<div class="position-relative overflow-hidden mb-3" style="height: 80px;">
 		                        <img class="img-fluid w-100 h-100" src="<?php echo $cateData['category_image']?>" style="object-fit: cover;">
-		                        <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
+		                        <a href="category_blog.php?category=<?php echo $cateData['category_name'];?>" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
 		                            <?php echo $cateData['category_name'];?>
 		                        </a>
 		                    </div>
@@ -484,21 +482,9 @@ include 'conn.php';
                         <div class="bg-light py-2 px-4 mb-3">
                             <h3 class="m-0">Tags</h3>
                         </div>
-                        <div class="d-flex flex-wrap m-n1">
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Politics</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Corporate</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Sports</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Health</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Education</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Science</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Technology</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Foods</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Entertainment</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Travel</a>
-                            <a href="" class="btn btn-sm btn-outline-secondary m-1">Lifestyle</a>
-                        </div>
+                        <?php include'tag.php'; ?>
                     </div>
+
                     <!-- Tags End -->
                 </div>
             </div>
