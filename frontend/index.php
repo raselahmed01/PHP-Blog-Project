@@ -60,7 +60,7 @@
 
                     		<div class="position-relative overflow-hidden mb-3" style="height: 80px;">
 		                        <img class="img-fluid w-100 h-100" src="<?php echo $cateData['category_image']?>" style="object-fit: cover;">
-		                        <a href="category_blog.php?category=<?php echo $cateData['category_name'];?>" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
+		                        <a href="category_blog.php?category=<?php echo $cateData['id'];?>" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
 		                            <?php echo $cateData['category_name'];?>
 		                        </a>
 		                    </div>
@@ -270,48 +270,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                   <!--  <div class="row mb-3">
-                        <div class="col-12">
-                            <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                                <h3 class="m-0">Popular</h3>
-                                <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="img/news-500x280-2.jpg" style="object-fit: cover;">
-                                <div class="overlay position-relative bg-light">
-                                    <div class="mb-2" style="font-size: 14px;">
-                                        <a href="">Technology</a>
-                                        <span class="px-1">/</span>
-                                        <span>January 01, 2045</span>
-                                    </div>
-                                    <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                    <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
-                                </div>
-                            </div>
-                           
-                          
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="img/news-500x280-3.jpg" style="object-fit: cover;">
-                                <div class="overlay position-relative bg-light">
-                                    <div class="mb-2" style="font-size: 14px;">
-                                        <a href="">Technology</a>
-                                        <span class="px-1">/</span>
-                                        <span>January 01, 2045</span>
-                                    </div>
-                                    <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                    <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
-                                </div>
-                            </div>
-                           
-                           
-                        </div>
-
-
-                    </div> -->
+                   
                     
                     <div class="mb-3 pb-3">
                         <a href=""><img class="img-fluid w-100" src="img/ads-700x70.jpg" alt=""></a>
@@ -391,21 +350,9 @@
                     <!-- Social Follow End -->
 
                     <!-- Newsletter Start -->
-                    <div class="pb-3">
-                        <div class="bg-light py-2 px-4 mb-3">
-                            <h3 class="m-0">Newsletter</h3>
-                        </div>
-                        <div class="bg-light text-center p-4 mb-3">
-                            <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
-                            <div class="input-group" style="width: 100%;">
-                                <input type="text" class="form-control form-control-lg" placeholder="Your Email">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary">Sign Up</button>
-                                </div>
-                            </div>
-                            <small>Sit eirmod nonumy kasd eirmod</small>
-                        </div>
-                    </div>
+
+                    <?php include 'newsletter.php';?>
+                    
                     <!-- Newsletter End -->
 
                     <!-- Ads Start -->

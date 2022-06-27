@@ -1,13 +1,15 @@
-<?php 
+<?php
+
 
 include 'conn.php';
 include 'header.php';
 
-$tag_val=$_GET['tag'];
+$src_val=$_GET['search'];
 
-$tag_blog_sel="select article.id,article.tag,article.article_image,article.title,article.article,article.category_id,category.category_name from article LEFT JOIN category ON category.id=article.category_id where article.tag='$tag_val'";
+$src_blog_sel="select article.id,article.tag,article.article_image,article.title,article.article,article.category_id,category.category_name from article LEFT JOIN category ON category.id=article.category_id where article.title like '%$src_val%' OR article.article like '%$src_val%' OR category.category_name like '%$src_val%'";
 
-$tag_blog_qry=mysqli_query($conn,$tag_blog_sel);
+$src_blog_qry=mysqli_query($conn,$src_blog_sel);
+
 // $tagq_data= mysqli_fetch_array($tag_blog_qry);
 
 
@@ -37,30 +39,30 @@ $tag_blog_qry=mysqli_query($conn,$tag_blog_sel);
                     <div class="row">
                         <div class="col-12">
                             <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                                <h3 class="m-0">Show All Tag Blog</h3>
+                                <h3 class="m-0">Show All Search Blog</h3>
                                 <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
                             </div>
                         </div>
                         
                         <?php 
 
-                        while ($tag_blog_data=mysqli_fetch_assoc($tag_blog_qry)) {
+                        while ($src_blog_data=mysqli_fetch_assoc($src_blog_qry)) {
                         	?>
                         <div class="col-lg-6">
                         	<div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="<?php echo $tag_blog_data['article_image'];?>" style="object-fit: cover;">
+                                <img class="img-fluid w-100" src="<?php echo $src_blog_data['article_image'];?>" style="object-fit: cover;">
                                 <div class="overlay position-relative bg-light">
                                     <div class="mb-2" style="font-size: 14px;">
-                                        <a href=""><?php echo $tag_blog_data['category_name'];?></a>
+                                        <a href=""><?php echo $src_blog_data['category_name'];?></a>
                                         
                                     </div>
-                                    <a class="h4" href="single_blog.php?id=<?php echo $tag_blog_data['id'];?>"><?php echo $tag_blog_data['title'];?></a>
-                                    <p class="m-0"><?php echo substr_replace($tag_blog_data['article'], '.....', 70);?></p>
+                                    <a class="h4" href="single_blog.php?id=<?php echo $tag_blog_data['id'];?>"><?php echo $src_blog_data['title'];?></a>
+                                    <p class="m-0"><?php echo substr_replace($src_blog_data['article'], '.....', 70);?></p>
                                 </div>
                             </div>
                         </div>
                         <?php
-                        }
+                        	}
                         ?>
                         
                            
@@ -128,9 +130,7 @@ $tag_blog_qry=mysqli_query($conn,$tag_blog_sel);
                     <!-- Social Follow End -->
 
                     <!-- Newsletter Start -->
-
                     <?php include 'newsletter.php';?>
-                    
                     <!-- Newsletter End -->
 
                     <!-- Ads Start -->

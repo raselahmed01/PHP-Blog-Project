@@ -5,7 +5,7 @@ include 'header.php';
 
 $category=$_GET['category'];
 
-$cat_blog_sel="select article.id,article.tag,article.article_image,article.title,article.article,article.category_id,category.category_name from article LEFT JOIN category ON category.id=article.category_id where category.category_name='$category'";
+$cat_blog_sel="select article.id,article.tag,article.article_image,article.title,article.article,article.category_id,category.category_name from article LEFT JOIN category ON category.id=article.category_id where article.category_id='$category'";
 
 $cat_blog_qry=mysqli_query($conn,$cat_blog_sel);
 // $tagq_data= mysqli_fetch_array($tag_blog_qry);
@@ -128,21 +128,9 @@ $cat_blog_qry=mysqli_query($conn,$cat_blog_sel);
                     <!-- Social Follow End -->
 
                     <!-- Newsletter Start -->
-                    <div class="pb-3">
-                        <div class="bg-light py-2 px-4 mb-3">
-                            <h3 class="m-0">Newsletter</h3>
-                        </div>
-                        <div class="bg-light text-center p-4 mb-3">
-                            <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
-                            <div class="input-group" style="width: 100%;">
-                                <input type="text" class="form-control form-control-lg" placeholder="Your Email">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary">Sign Up</button>
-                                </div>
-                            </div>
-                            <small>Sit eirmod nonumy kasd eirmod</small>
-                        </div>
-                    </div>
+
+                    <?php include 'newsletter.php';?>
+                    
                     <!-- Newsletter End -->
 
                     <!-- Ads Start -->

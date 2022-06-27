@@ -2,6 +2,16 @@
 
 session_start();
 
+ 
+
+    if(isset($_POST['search'])){
+
+    $search=$_POST['src'];
+                          
+    header('Location:search_blog.php?search='.$search);  
+    }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -206,13 +216,18 @@ session_start();
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
-                    <input type="text" class="form-control" placeholder="Keyword">
-                    <div class="input-group-append">
-                        <button class="input-group-text text-secondary"><i
-                                class="fa fa-search"></i></button>
+
+                <!-- Search Blog Content Here -->
+                <form method="post">
+                    <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
+                        
+                        
+                            <input type="text" name="src" class="form-control" placeholder="Keyword">
+                            <div class="input-group-append">
+                                <button name="search"class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
+                            </div>
                     </div>
-                </div>
+                </form>
             </div>
         </nav>
     </div>

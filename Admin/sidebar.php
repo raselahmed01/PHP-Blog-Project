@@ -35,6 +35,12 @@
           
           </div>
 
+          <div class="nav_icon mb-4">
+
+            <a href="subscriber.php" style="font-size: 20px;"> <i class="fas fa-o me-2"></i> Subscriber </a>
+          
+          </div>
+
           
 
           <div class="nav_icon mb-4">
