@@ -3,8 +3,20 @@
 include 'conn.php';
 include 'header.php';
 
+$limit=4;
 
-$all_blog_sel="select article.id,article.tag,article.article_image,article.title,article.article,article.category_id,category.category_name from article LEFT JOIN category ON category.id=article.category_id ORDER BY article.id DESC";
+if(isset($_GET['page'])){
+
+	$page=$_GET['page'];
+}else{
+
+	$page=1;
+}
+
+$offset=($page-1)*$limit;
+
+
+$all_blog_sel="select article.id,article.tag,article.article_image,article.title,article.article,article.status,article.category_id,category.category_name from article LEFT JOIN category ON category.id=article.category_id where article.status=1 ORDER BY article.id DESC LIMIT $offset,$limit";
 
 $all_blog_qry=mysqli_query($conn,$all_blog_sel);
 // $tagq_data= mysqli_fetch_array($tag_blog_qry);
@@ -36,7 +48,7 @@ $all_blog_qry=mysqli_query($conn,$all_blog_sel);
                     <div class="row">
                         <div class="col-12">
                             <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                                <h3 class="m-0">Show All Category Blog</h3>
+                                <h3 class="m-0">Show All Blog</h3>
                                 <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
                             </div>
                         </div>
@@ -72,12 +84,20 @@ $all_blog_qry=mysqli_query($conn,$all_blog_sel);
                         <div class="col-12">
                             <nav aria-label="Page navigation">
                               <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                  <a class="page-link" href="#" aria-label="Previous">
-                                    <span class="fa fa-angle-double-left" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                  </a>
-                                </li>
+
+                              	<?php 
+                              		if($page>1){
+                              			?>
+                              			<li class="page-item ">
+		                                  <a class="page-link" href="all_blog.php?page=<?php echo $page - 1;?>" aria-label="Previous">
+		                                    <span class="fa fa-angle-double-left" aria-hidden="true"></span>
+		                                    <span class="sr-only">Previous</span>
+		                                  </a>
+		                                </li>
+                              			<?php
+                              		}
+                              	?>
+                                
 
                                 <?php 
 
@@ -95,7 +115,7 @@ $all_blog_qry=mysqli_query($conn,$all_blog_sel);
                                 		for ($i=1; $i <= $total_page ; $i++) { 
                                 			?>
 
-                                			<li class="page-item active"><a class="page-link" href="all_blog.php?page=<?php echo $i;?>"><?php echo $i ;?></a></li>
+                                			<li class="page-item "><a class="page-link" href="all_blog.php?page=<?php echo $i;?>"><?php echo $i ;?></a></li>
 
                                 			<?php
                                 		}
@@ -105,10 +125,20 @@ $all_blog_qry=mysqli_query($conn,$all_blog_sel);
                                 
                                 
                                 <li class="page-item">
-                                  <a class="page-link" href="#" aria-label="Next">
-                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                  </a>
+
+                                	<?php 
+
+                                		if($total_page>$page){
+
+                                			?>
+                                			<a class="page-link" href="all_blog.php?page=<?php echo $page + 1;?>" aria-label="Next">
+			                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+			                                    <span class="sr-only">Next</span>
+			                                  </a>
+                                			<?php
+                                		}
+                                	?>
+                                  
                                 </li>
                               </ul>
                             </nav>
